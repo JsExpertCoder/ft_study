@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 19:59:18 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/01/05 20:01:06 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/01/05 22:52:20 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 void	ft_putstr(char *str)
 {
 	while (*str)
-		write(1, ++str, 1);
+		write(1, str++, 1);
 	return ;
 }
