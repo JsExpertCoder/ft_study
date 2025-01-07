@@ -1,4 +1,5 @@
 /docs
 
 /c/exe/c*/ex*/.*.sw*
+/c/temp
 /cpp
