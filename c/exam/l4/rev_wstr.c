@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 13:25:25 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/01/07 16:33:00 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/01/08 20:47:58 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-// print a word of a strint based on its start and its end
+// print a word of the string based on its start and its end
 void	print_word(char *str, int start, int end)
 {
 	while (str[start] && (start <= end))
