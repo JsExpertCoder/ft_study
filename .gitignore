@@ -1,5 +1,7 @@
-/docs
-
-/c/exe/c*/ex*/.*.sw*
-/c/temp
 /cpp
+/docs
+/c/temp
+
+*.swp
+*.swo
+
