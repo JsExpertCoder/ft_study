@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 20:46:54 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/01/12 21:01:46 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/01/12 21:19:26 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_sort_int_tab(int *tab, int size)
 int	main(void)
 {
 	int	i = 0;
-	int	nbrs[] = {5, 4, 423, 3, 65, 9, 88, 3, 5, 5, 7, 3, 1, 8, 23, 5, 7, 23, 34, 2, 0};
+	int	nbrs[] = {5, 4, 423, 3, 65, 9, 88, 3, 5, 5, 7, 5, 7, 23, 34, 2, 0};
 	int	size = sizeof(nbrs) / sizeof(nbrs[0]);
 
 	i = 0;
