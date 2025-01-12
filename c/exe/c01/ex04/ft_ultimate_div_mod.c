@@ -6,12 +6,17 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 20:25:36 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/01/12 20:26:49 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/01/12 21:17:04 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_ultimate_div_mod(int *a, int *b)
 {
-	*a = *a / *b;
-	*b = *a % *b;
+	int	div;
+	int	mod;
+
+	div = *a / *b;
+	mod = *a % *b;
+	*a = div;
+	*b = mod;
 }
