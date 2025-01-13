@@ -6,7 +6,7 @@
 /*   By: fnicolau <fnicolau@student.42luanda.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 12:42:26 by fnicolau          #+#    #+#             */
-/*   Updated: 2024/10/09 13:33:29 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/01/13 22:21:48 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	ft_print_numbers(void)
 {
 	char	num;
 
-	num = '0',
-	while (i <= '9')
+	num = '0';
+	while (num <= '9')
 	{
 		write(1, &num, 1);
 		num++;
