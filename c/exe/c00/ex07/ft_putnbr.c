@@ -6,7 +6,7 @@
 /*   By: fnicolau <fnicolau@student.42luanda.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 14:16:52 by fnicolau          #+#    #+#             */
-/*   Updated: 2024/10/10 23:05:29 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/01/13 22:23:26 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ void	ft_putnbr(int nb)
 	ft_putchar(digit_as_char);
 }
 
-// remove this later
-int	main(void)
+/*int	main(void)
 {
 	ft_putnbr(42);
 	ft_putchar('\n');
@@ -54,4 +53,4 @@ int	main(void)
 	ft_putnbr(2147483647);
 	ft_putchar('\n');
 	return (0);
-}
+}*/
