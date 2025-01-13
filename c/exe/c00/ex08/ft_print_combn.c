@@ -6,7 +6,7 @@
 /*   By: fnicolau <fnicolau@student.42luanda.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 23:22:28 by fnicolau          #+#    #+#             */
-/*   Updated: 2024/10/12 00:27:25 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/01/13 22:24:52 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	ft_print_combn(int n)
 	}
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int	n;
 
@@ -97,4 +97,4 @@ int	main(void)
 		n++;
 	}
 	return (0);
-}
+}*/
