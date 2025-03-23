@@ -6,11 +6,10 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 15:22:06 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/03/22 20:52:38 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/03/23 19:22:26 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -22,7 +21,7 @@ bool	is_delimiter(const char c, const char *delimiter)
 			return (true);
 		delimiter++;
 	}
-	return (0);
+	return (false);
 }
 
 int	tokens_counter(const char *str, const char *delimiter)
@@ -32,7 +31,6 @@ int	tokens_counter(const char *str, const char *delimiter)
 	if (!str || !delimiter)
 		return (0);
 	total = 0;
-
 	while (*str)
 	{
 		if (!(is_delimiter(*str, delimiter)))
@@ -41,33 +39,58 @@ int	tokens_counter(const char *str, const char *delimiter)
 				str++;
 			total++;
 		}
-		if (*str)
+		else
 			str++;
 	}
 	return (total);
 }
 
-char	**ft_split(char *str, char *charset)
+char	*get_token_addr(char *str, char *delimiter)
 {
-	char	**result;
-	size_t	tokens;
+	size_t	i;
+	char	*token;
 
-	if (!(str))
-		return NULL;
-	tokens = tokens_counter(str, charset);
-	result = (char **)malloc(tokens * sizeof(char *));
-	if (!result)
+	i = 0;
+	while (str[i] && !(is_delimiter(str[i], delimiter)))
+		i++;
+	token = (char *)malloc(sizeof(char) * (i + 1));
+	if (!token)
 		return (NULL);
-
-	return (result);
+	i = 0;
+	while (str[i] && !(is_delimiter(str[i], delimiter)))
+	{
+		token[i] = str[i];
+		i++;
+	}
+	token[i] = 0;
+	return (token);
 }
 
-int	main(void)
+char	**ft_split(char *str, char *charset)
 {
-	char *str = "thisaaa isaaa anaaa str";
-	char *charset = "aaa";
+	size_t	i;
+	size_t	tokens;
+	char	**result;
 
-	//ft_split("this is the best programming school ever", " ");
-	printf("%i ", tokens_counter(str, charset));
-	return (0);
+	if (!str || !charset)
+		return (NULL);
+	tokens = tokens_counter(str, charset);
+	result = (char **)malloc(sizeof(char *) * (tokens + 1));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (*str)
+	{
+		if (!(is_delimiter(*str, charset)))
+		{
+			result[i] = get_token_addr(str, charset);
+			while (*str && !(is_delimiter(*str, charset)))
+				str++;
+			i++;
+		}
+		else
+			str++;
+	}
+	result[i] = 0;
+	return (result);
 }
