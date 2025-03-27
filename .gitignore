@@ -1,6 +1,7 @@
 /cpp
 /docs
 /c/temp
+*/assets
 
 *.swp
 *.swo
