@@ -6,11 +6,9 @@
 /*   By: fnicolau <fnicolau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 20:32:01 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/11 22:02:22 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/12 16:06:32 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "ft_cat.h"
 
 int	print_error(char *file_path, int fd)
 {
