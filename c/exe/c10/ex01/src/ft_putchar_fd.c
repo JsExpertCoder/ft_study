@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: fnicolau <fnicolau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 15:05:21 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/08 15:08:40 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/12 16:06:12 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "ft_cat.h"
 
 void	ft_putchar_fd(const char c, int fd)
 {
