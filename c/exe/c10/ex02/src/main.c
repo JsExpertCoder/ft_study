@@ -6,46 +6,46 @@
 /*   By: fnicolau <fnicolau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:47:38 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/14 20:39:54 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/15 20:09:52 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_tail.h"
 
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
 	int		fd;
+	int		i;
+	int		final_return;
+	int		bytes_to_read;
+	int		total_of_files;
 
-	if (ac == 1)
-		return (ft_tail("stdin", 0, 0, 0));
-	else if (ac == 2)
+	final_return = 0;
+	total_of_files = 0;
+	bytes_to_read = option_parser(argv, argc);
+	if (bytes_to_read == -1)
+		return (-1);
+	else if (bytes_to_read)
 	{
-		if (ft_strncmp(av[1], "-c", 2) == 0)
+		i = 1;
+		while (argv[i])
 		{
-			if (option_parser(av[1]) == -1)
-				return (1);
-			else if (option_parser(av[1]) > 0)
-				return (ft_tail("stdin", 0, option_parser(av[1]), 0));
+			if (argv[i][0] != '-')
+			{
+				fd = open(argv[i], O_RDONLY);
+				if (fd == -1)
+				{
+					print_error(argv[i], fd);
+					final_return = -1;
+				}
+				else
+					ft_tail(argv[i], fd, bytes_to_read);
+				total_of_files++;
+			}
+			i++;
 		}
-		fd = open(av[1], O_RDONLY);
-		if (fd == -1)
-			return (print_error(av[1], fd));
-		return (ft_tail(av[1], fd, 0, 10));
+		if (total_of_files == 0)
+			ft_tail("stdin", 0, bytes_to_read);
 	}
-	else if (ac == 3)
-	{
-	}
-	else if (ac >= 4)
-	{
-	}
-	return (0);
+	return (final_return);
 }
-
-// 2: tail -c file-paths == some error
-// 2: tail file-paths -c == some error
-// 1: tail -c BYTES == stdin, read a max of BYTES from the end
-// 2: tail -cBYTES file-paths == read file-paths, read max of BYTES / file
-// 2: tail file-paths -cBYTES == read file-paths, read max of BYTES / file
-
-// 1: tail -c BYTES file-paths == read file-paths, read max of BYTES / file
-// 1: tail file-paths -c BYTES == read file-paths, read max of BYTES / file
