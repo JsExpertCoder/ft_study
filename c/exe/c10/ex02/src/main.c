@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnicolau <fnicolau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:47:38 by fnicolau          #+#    #+#             */
 /*   Updated: 2025/04/15 20:09:52 by fnicolau         ###   ########.fr       */
@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 			i++;
 		}
 		if (total_of_files == 0)
-			ft_tail("stdin", 0, bytes_to_read);
+			final_return = ft_tail("stdin", 0, bytes_to_read);
 	}
 	return (final_return);
 }
