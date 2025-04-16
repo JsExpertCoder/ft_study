@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fnicolau <fnicolau@student.42.fr>          +#+  +:+       +#+         #
+#    By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/14 16:07:02 by fnicolau          #+#    #+#              #
-#    Updated: 2025/04/15 17:48:21 by fnicolau         ###   ########.fr        #
+#    Updated: 2025/04/16 20:19:25 by fnicolau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ INC_DIR	= include
 
 # file settings
 FILES	= main.c ft_putstr_fd.c ft_putchar_fd.c option_parser.c ft_tail.c \
-		  ft_strncmp.c ft_strcmp.c print_error.c ft_strlen.c ft_atoi.c
+		  ft_strncmp.c ft_strcmp.c print_error.c ft_strlen.c ft_atoi.c    \
+		  ft_strcpy.c
 		  
 SRCS	= $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS	= $(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
