@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tail.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fnicolau <fnicolau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:49:24 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/15 19:42:19 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/16 20:20:45 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,15 @@
 # include <unistd.h>	// for read(), write(), close()
 # include <errno.h>		// for errno
 # include <string.h>	// for strerror()
+# include <stdlib.h>	// for malloc, free
 # include <libgen.h>	// for basename()
 # include <stdbool.h>	// for "true", "false"
+# include <stdio.h>		// for debug purpose
 
 int		ft_atoi(const char *nptr);
 size_t	ft_strlen(const char *s);
 void	ft_putstr_fd(char *str, int fd);
+char	*ft_strcpy(char *dst, const char *src);
 void	ft_putchar_fd(const char c, int fd);
 int		print_error(char *file_path, int fd);
 int		option_parser(char **args, size_t length);
