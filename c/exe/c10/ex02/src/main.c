@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:47:38 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/17 23:30:06 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/17 23:38:56 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ int	main(int argc, char **argv)
 		while (files->paths[j])
 		{
 			printf("> files-%i: %s\n", j, files->paths[j]);
+			free(files->paths[j]);
 			j++;
 		}
+		free(files->paths);
 		free(files);
 	}
 	return (final_return);
