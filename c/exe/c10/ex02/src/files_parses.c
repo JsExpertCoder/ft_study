@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 20:40:19 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/17 21:49:53 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/17 23:29:06 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,39 +43,44 @@ static int	get_total_of_files(char **args)
 	return (total_of_files);
 }
 
-char	**files_parser(char **args)
+static void	populate_files(char **args, char **paths)
 {
-	int		i;
-	int		j;
-	char	**files;
-	int		total_of_files;
+	size_t	i;
+	size_t	j;
 
-	i = 1;
-	files = NULL;
-	total_of_files = 0;
-	total_of_files = get_total_of_files(args);
-	if (total_of_files > 0)
+	i = 0;
+	j = 0;
+	while (args[i])
 	{
-		files = (char **)malloc((total_of_files + 1) * sizeof(char *));
-		if (files == NULL)
-			return (NULL);
-		i = 0;
-		j = 0;
-		while (args[i])
+		if (validate_file(args[i], args[i - 1]))
 		{
-			if (validate_file(args[i], args[i - 1]))
-			{
-				files[j] = args[i];
-				j++;
-			}
-			i++;
+			paths[j] = args[i];
+			j++;
 		}
-		files[j] = 0;
-	 }
-	return (files);
+		i++;
+	}
+	paths[j] = 0;
+	return ;
 }
 
-// int	main(void)
-// {
-// 	return (0);
-// }
+t_files	*files_parser(char **args)
+{
+	t_files	*files;
+	int		total_of_files;
+
+	total_of_files = get_total_of_files(args);
+	if (total_of_files == 0)
+		return (NULL);
+	files = malloc(sizeof(t_files));
+	if (files == NULL)
+		return (NULL);
+	files->total = total_of_files;
+	files->paths = malloc((total_of_files + 1) * sizeof(char *));
+	if (!files->paths)
+	{
+		free(files->paths);
+		return (NULL);
+	}
+	populate_files(args, files->paths);
+	return (files);
+}
