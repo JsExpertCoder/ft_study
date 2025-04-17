@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:49:24 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/16 20:20:45 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/17 21:47:35 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,15 @@
 # include <stdbool.h>	// for "true", "false"
 # include <stdio.h>		// for debug purpose
 
-int		ft_atoi(const char *nptr);
+typedef struct s_files
+{
+	int		total;
+	char	**paths;
+}	t_files;
+
 size_t	ft_strlen(const char *s);
+int		ft_atoi(const char *nptr);
+char	**files_parser(char **args);
 void	ft_putstr_fd(char *str, int fd);
 char	*ft_strcpy(char *dst, const char *src);
 void	ft_putchar_fd(const char c, int fd);
