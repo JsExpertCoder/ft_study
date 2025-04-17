@@ -21,7 +21,7 @@ INC_DIR	= include
 # file settings
 FILES	= main.c ft_putstr_fd.c ft_putchar_fd.c option_parser.c ft_tail.c \
 		  ft_strncmp.c ft_strcmp.c print_error.c ft_strlen.c ft_atoi.c    \
-		  ft_strcpy.c
+		  ft_strcpy.c files_parses.c
 		  
 SRCS	= $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS	= $(addprefix $(OBJ_DIR)/, $(FILES:.c=.o))
