@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:49:24 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/17 21:47:35 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/17 22:10:53 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_files
 
 size_t	ft_strlen(const char *s);
 int		ft_atoi(const char *nptr);
-char	**files_parser(char **args);
+t_files	*files_parser(char **args);
 void	ft_putstr_fd(char *str, int fd);
 char	*ft_strcpy(char *dst, const char *src);
 void	ft_putchar_fd(const char c, int fd);
