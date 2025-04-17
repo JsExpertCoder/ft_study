@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:47:38 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/17 21:50:21 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/17 23:30:06 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char **argv)
 {
 	int		j;
-	char	**files;
+	t_files	*files;
 	int		final_return;
 	int		bytes_to_read;
 
@@ -25,22 +25,18 @@ int	main(int argc, char **argv)
 		return (-1);
 	else if (bytes_to_read)
 	{
-		printf("> bytes to read: %i\n", bytes_to_read);
 		files = files_parser(argv + 1);
 		if (files == NULL)
 			return (1);
+		printf("> bytes to read: %i\n", bytes_to_read);
+		printf("> total of files: %i\n", files->total);
 		j = 0;
-		while (files[j])
+		while (files->paths[j])
 		{
-			printf("> files-%i: %s\n", j, files[j]);
+			printf("> files-%i: %s\n", j, files->paths[j]);
 			j++;
 		}
 		free(files);
 	}
 	return (final_return);
 }
-
-// int	main(void)
-// {
-// 	return (0);
-// }
