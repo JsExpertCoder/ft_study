@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 19:03:45 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/16 21:48:45 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/17 22:51:15 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_tail(char *file_path, int fd, size_t bytes_to_read)
 		file_size = get_file_size(file_path);
 		if (file_size == -1)
 			return (1);
-		buffer = (char *)malloc(file_size + 1);
+		buffer = malloc(file_size + 1);
 		if (buffer == NULL)
 			return (1);
 		bytes_read = read(fd, buffer, file_size);
