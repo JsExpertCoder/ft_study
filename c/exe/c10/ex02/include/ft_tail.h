@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:49:24 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/17 22:10:53 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/18 19:35:53 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 typedef struct s_files
 {
-	int		total;
+	size_t	total;
 	char	**paths;
 }	t_files;
 
