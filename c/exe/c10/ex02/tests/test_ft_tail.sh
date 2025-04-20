@@ -63,8 +63,8 @@ printf "1234567890" >"$TMPDIR/f5.bin"
 run_test larger_file  'FTTAIL -c 100 '"$TMPDIR"'/f5.bin'
 
 # 6) Multiple files
-printf "aaaaa" >"$TMPDIR/f6a"
-printf "12345" >"$TMPDIR/f6b"
+cat "assets/file1.txt" >"$TMPDIR/f6a"
+cat "assets/file2.txt" >"$TMPDIR/f6b"
 run_test multi_file   'FTTAIL -c 3 '"$TMPDIR"'/f6a '"$TMPDIR"'/f6b'
 
 # 7) Non-seekable input (pipe)
