@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:47:38 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/20 16:33:04 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/20 19:50:52 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(int argc, char **argv)
 	final_return = 0;
 	bytes_to_read = option_parser(argv, argc);
 	if (bytes_to_read == -1)
-		return (-1);
+		return (1);
 	else if (bytes_to_read)
 	{
 		files = files_parser(argv + 1);
