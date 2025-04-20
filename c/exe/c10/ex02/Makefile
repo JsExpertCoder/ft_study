@@ -6,7 +6,7 @@
 #    By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/14 16:07:02 by fnicolau          #+#    #+#              #
-#    Updated: 2025/04/16 20:19:25 by fnicolau         ###   ########.fr        #
+#    Updated: 2025/04/20 20:31:06 by fnicolau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ LINKING		= $(CC) $(CFLAGS) -I $(INC_DIR) -o
 ASSEMBLY	= $(CC) $(CFLAGS) -I $(INC_DIR) -c
 MAKE_DIR	= mkdir -p
 CHECK_NORME	= norminette
+TEST		= tests/test_ft_tail.sh
 
 # targets
 all: $(NAME)
@@ -61,4 +62,7 @@ run:
 norme:
 	$(CHECK_NORME)
 
-.PHONY: all clean fclean re run norme
+tests:
+	$(TEST)
+
+.PHONY: all clean fclean re run norme tests
