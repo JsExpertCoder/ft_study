@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 20:05:11 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/16 20:40:45 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/20 19:57:35 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	print_error(char *file_path, int fd)
 {
 	ft_putstr_fd("tail: ", 2);
-	ft_putstr_fd("cannot open: '", 2);
+	ft_putstr_fd("cannot open '", 2);
 	ft_putstr_fd(file_path, 2);
 	ft_putstr_fd("' for reading: ", 2);
 	ft_putstr_fd(strerror(errno), 2);
