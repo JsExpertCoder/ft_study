@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 20:40:19 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/17 23:29:06 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/20 17:04:14 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static bool	validate_file(char *file, char *arg_before_file)
 	return (false);
 }
 
-static int	get_total_of_files(char **args)
+static size_t	get_total_of_files(char **args)
 {
-	int	i;
-	int	total_of_files;
+	size_t	i;
+	size_t	total_of_files;
 
 	i = 0;
 	total_of_files = 0;
@@ -66,21 +66,18 @@ static void	populate_files(char **args, char **paths)
 t_files	*files_parser(char **args)
 {
 	t_files	*files;
-	int		total_of_files;
+	size_t	total_of_files;
 
 	total_of_files = get_total_of_files(args);
 	if (total_of_files == 0)
-		return (NULL);
+		return (0);
 	files = malloc(sizeof(t_files));
 	if (files == NULL)
 		return (NULL);
 	files->total = total_of_files;
 	files->paths = malloc((total_of_files + 1) * sizeof(char *));
 	if (!files->paths)
-	{
-		free(files->paths);
 		return (NULL);
-	}
 	populate_files(args, files->paths);
 	return (files);
 }
