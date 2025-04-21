@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 19:03:45 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/21 23:49:36 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/22 00:05:25 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ static t_circular_buffer	*structure_circular_buffer(size_t size, int fd)
 	cb->total_bytes_read = 0;
 	cb->content = malloc(size);
 	if (!cb->content)
+	{
+		free(cb);
 		return (0);
+	}
 	return (fill_circular_buffer(cb, fd));
 }
 
