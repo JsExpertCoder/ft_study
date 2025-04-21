@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:49:24 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/18 19:35:53 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/21 23:13:39 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@ typedef struct s_files
 	size_t	total;
 	char	**paths;
 }	t_files;
+
+typedef struct s_circular_buffer
+{
+	size_t	size;
+	size_t	index;
+	char	*content;
+	size_t	total_bytes_read;
+}	t_circular_buffer;
 
 size_t	ft_strlen(const char *s);
 int		ft_atoi(const char *nptr);
