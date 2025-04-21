@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 19:03:45 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/21 21:00:06 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/21 21:55:24 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,42 +16,42 @@
 int	ft_tail(char *file_path, int fd, size_t bytes_to_read)
 {
 	ssize_t	i;
-	char	*cbuf;
-	size_t	cbuf_index;
 	ssize_t	bytes_read;
 	size_t	total_bytes_read;
-	char	temp_buf[4096];
+	size_t	cbuf_index;
+	char	temp_buffer[3000];
+	char	*circular_buffer;
 
+	circular_buffer = malloc(bytes_to_read);
+	if (!circular_buffer)
+		return (1);
 	cbuf_index = 0;
 	total_bytes_read = 0;
-	cbuf = malloc(bytes_to_read);
-	if (cbuf == NULL)
-		return (1);
-	bytes_read = read(fd, temp_buf, sizeof(temp_buf));
+	bytes_read = read(fd, temp_buffer, sizeof(temp_buffer));
 	while (bytes_read > 0)
 	{
-		total_bytes_read += bytes_read;
 		i = 0;
+		total_bytes_read += bytes_read;
 		while (i++ < bytes_read)
 		{
-			cbuf[cbuf_index] = temp_buf[i - 1];
+			circular_buffer[cbuf_index] = temp_buffer[i - 1];
 			cbuf_index = (cbuf_index + 1) % bytes_to_read;
 		}
-		bytes_read = read(fd, temp_buf, sizeof(temp_buf));
+		bytes_read = read(fd, temp_buffer, sizeof(temp_buffer));
 	}
 	if (bytes_read == -1)
 	{
-		free(cbuf);
+		free(circular_buffer);
 		return (print_error(file_path, fd));
 	}
-	if (total_bytes_read < bytes_to_read)
-		write(1, cbuf, total_bytes_read);
+	if (total_bytes_read <= bytes_to_read)
+		write(1, circular_buffer, total_bytes_read);
 	else
 	{
-		write(1, cbuf + cbuf_index, (bytes_to_read - cbuf_index));
+		write(1, circular_buffer + cbuf_index, (bytes_to_read - cbuf_index));
 		if (cbuf_index > 0)
-			write(1, cbuf, cbuf_index);
+			write(1, circular_buffer, cbuf_index);
 	}
-	free(cbuf);
+	free(circular_buffer);
 	return (0);
 }
