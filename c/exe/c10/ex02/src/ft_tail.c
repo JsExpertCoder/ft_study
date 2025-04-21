@@ -6,28 +6,18 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 19:03:45 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/21 23:33:06 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/21 23:49:36 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_tail.h"
 
-static t_circular_buffer	*structure_circular_buffer(size_t size, int fd)
+static t_circular_buffer	*fill_circular_buffer(t_circular_buffer *cb, int fd)
 {
-	ssize_t				i;
-	t_circular_buffer	*cb;
-	ssize_t				bytes_read;
-	char				temp_buffer[3000];
+	ssize_t	i;
+	ssize_t	bytes_read;
+	char	temp_buffer[3000];
 
-	cb = malloc(sizeof(t_circular_buffer));
-	if (!cb)
-		return (0);
-	cb->size = size;
-	cb->index = 0;
-	cb->total_bytes_read = 0;
-	cb->content = malloc(size);
-	if (!cb->content)
-		return (0);
 	bytes_read = read(fd, temp_buffer, sizeof(temp_buffer));
 	while (bytes_read > 0)
 	{
@@ -49,6 +39,22 @@ static t_circular_buffer	*structure_circular_buffer(size_t size, int fd)
 	return (cb);
 }
 
+static t_circular_buffer	*structure_circular_buffer(size_t size, int fd)
+{
+	t_circular_buffer	*cb;
+
+	cb = malloc(sizeof(t_circular_buffer));
+	if (!cb)
+		return (0);
+	cb->size = size;
+	cb->index = 0;
+	cb->total_bytes_read = 0;
+	cb->content = malloc(size);
+	if (!cb->content)
+		return (0);
+	return (fill_circular_buffer(cb, fd));
+}
+
 int	ft_tail(char *file_path, int fd, size_t bytes_to_read)
 {
 	t_circular_buffer	*cb;
@@ -64,6 +70,7 @@ int	ft_tail(char *file_path, int fd, size_t bytes_to_read)
 		if (cb->index > 0)
 			write(1, cb->content, cb->index);
 	}
+	free(cb->content);
 	free(cb);
 	return (0);
 }
