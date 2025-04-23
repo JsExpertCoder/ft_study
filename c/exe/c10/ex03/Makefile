@@ -1,11 +1,11 @@
-# p
+# project settings
 
-# d
+# directories settings
 
-# f
+# files path settings
 
-# c
+# compiler settings
 
-# c
+# commands
 
-# t
+# targets
