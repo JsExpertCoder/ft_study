@@ -6,7 +6,7 @@
 #    By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/25 18:25:53 by fnicolau          #+#    #+#              #
-#    Updated: 2025/04/25 18:36:33 by fnicolau         ###   ########.fr        #
+#    Updated: 2025/04/25 19:08:15 by fnicolau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,8 @@ INC_DIR	= include
 
 # files path settings
 FILES 	= main.c
-H_FILES	= ft_hexdump.h
 SRCS	= $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS	= $(addprefix $(OBJ_DIR)/, $(FILES:%.c=%.o))
-HEADERS	= $(addprefix $(INC_DIR)/, $(HEADER_FILES))
 
 # compiler settings
 CC		= gcc
@@ -32,8 +30,8 @@ CFLAGS	= -Wall -Wextra -Werror
 # commands
 DELETE		= rm -rf
 MAKE_DIR	= mkdir -p
-NORME		= norminette
-ASSEMBLY	= $(CC) $(CFLAGS) -I $(HEADERS)
+CHECK_NORME	= norminette
+ASSEMBLY	= $(CC) $(CFLAGS) -I$(INC_DIR)
 
 # targets
 all: $(NAME)
@@ -52,6 +50,6 @@ fclean: clean
 re: fclean all
 
 norme:
-	$(NORME)
+	$(CHECK_NORME)
 
 .PHONY: all clean fclean re norme
