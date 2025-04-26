@@ -13,6 +13,6 @@
 #ifndef FT_HEXDUMP_H
 # define FT_HEXDUMP_H
 
-# include <stdio.h>
+# include <stdio.h> // for debug purpose
 # include <unistd.h>
 #endif
