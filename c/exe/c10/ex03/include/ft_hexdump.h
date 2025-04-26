@@ -13,6 +13,13 @@
 #ifndef FT_HEXDUMP_H
 # define FT_HEXDUMP_H
 
-# include <stdio.h> // for debug purpose
-# include <unistd.h>
+# include <fcntl.h>		// for open()
+# include <unistd.h>	// for read(), write(), close()
+# include <errno.h>		// for errno
+# include <string.h>	// for strerror()
+# include <stdlib.h>	// for malloc, free
+# include <libgen.h>	// for basename()
+# include <stdbool.h>	// for "true", "false"
+# include <stdio.h>		// for debug purpose
+
 #endif
