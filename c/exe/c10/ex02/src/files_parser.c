@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   files_parses.c                                     :+:      :+:    :+:   */
+/*   files_parser.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 20:40:19 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/20 17:04:14 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/27 22:23:13 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ t_files	*files_parser(char **args)
 	files->total = total_of_files;
 	files->paths = malloc((total_of_files + 1) * sizeof(char *));
 	if (!files->paths)
+	{
+		free(files);
 		return (NULL);
+	}
 	populate_files(args, files->paths);
 	return (files);
 }
