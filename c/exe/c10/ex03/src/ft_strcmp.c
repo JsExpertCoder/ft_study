@@ -6,9 +6,11 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 17:08:11 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/27 17:10:36 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/27 21:51:23 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft_hexdump.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {
