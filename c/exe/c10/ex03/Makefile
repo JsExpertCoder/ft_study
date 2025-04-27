@@ -6,7 +6,7 @@
 #    By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/25 18:25:53 by fnicolau          #+#    #+#              #
-#    Updated: 2025/04/25 19:08:15 by fnicolau         ###   ########.fr        #
+#    Updated: 2025/04/27 22:11:18 by fnicolau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJ_DIR	= obj
 INC_DIR	= include
 
 # files path settings
-FILES 	= main.c
+FILES 	= main.c ft_strcmp.c file_collector.c
 SRCS	= $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS	= $(addprefix $(OBJ_DIR)/, $(FILES:%.c=%.o))
 
@@ -40,7 +40,7 @@ $(NAME): $(OBJS)
 	$(ASSEMBLY) $^ -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(MAKE_DIR) $(OBJ_DIR)
+	@$(MAKE_DIR) $(OBJ_DIR)
 	$(ASSEMBLY) -c $< -o $@
 
 clean:
