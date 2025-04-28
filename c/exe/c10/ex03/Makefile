@@ -6,7 +6,7 @@
 #    By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/25 18:25:53 by fnicolau          #+#    #+#              #
-#    Updated: 2025/04/27 22:11:18 by fnicolau         ###   ########.fr        #
+#    Updated: 2025/04/28 16:16:44 by fnicolau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ OBJ_DIR	= obj
 INC_DIR	= include
 
 # files path settings
-FILES 	= main.c ft_strcmp.c file_collector.c
+FILES 	= main.c ft_strcmp.c file_collector.c stdin_dump.c files_dump.c \
+          print_error.c ft_putstr_fd.c ft_strlen.c
 SRCS	= $(addprefix $(SRC_DIR)/, $(FILES))
 OBJS	= $(addprefix $(OBJ_DIR)/, $(FILES:%.c=%.o))
 
