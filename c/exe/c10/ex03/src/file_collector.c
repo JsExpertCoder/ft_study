@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/27 21:44:03 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/27 22:34:00 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/28 15:34:00 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ static size_t	get_total_of_files(char **args)
 {
 	size_t	i;
 	size_t	total;
+	bool	possible_option;
 
 	i = 0;
 	total = 0;
 	while (args[i])
 	{
-		if (args[i][0] != '-')
+		possible_option = args[i][0] == '-';
+		if (!possible_option || (possible_option && ft_strlen(args[i]) == 1))
 			total++;
 		i++;
 	}
@@ -32,12 +34,14 @@ static void	store_file_paths(char **files, char **args)
 {
 	size_t	i;
 	size_t	j;
+	bool	possible_option;
 
 	i = 0;
 	j = 0;
 	while (args[i])
 	{
-		if (args[i][0] != '-')
+		possible_option = args[i][0] == '-';
+		if (!possible_option || (possible_option && ft_strlen(args[i]) == 1))
 		{
 			files[j] = args[i];
 			j++;
