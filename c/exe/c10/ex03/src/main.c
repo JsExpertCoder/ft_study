@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 18:37:15 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/27 22:33:37 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/28 16:44:26 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,21 @@ static bool	check_option_existence(char **tokens)
 
 int	main(int argc, char **argv)
 {
-	size_t	i;
 	t_files	*files;
-	bool	with_option;
+	size_t	final_return;
+	bool	use_canonical_style;
 
 	(void)argc;
+	final_return = 0;
 	files = file_collector(++argv);
-	with_option = check_option_existence(argv);
+	use_canonical_style = check_option_existence(argv);
 	if (files == 0)
-	{
-		printf("> read from stdin.\n");
-		printf("> style: %s\n", (with_option ? "canonical" : "default"));
-	}
+		final_return = stdin_dump(use_canonical_style);
 	else if (files != NULL)
 	{
-		i = 0;
-		printf("> style: %s\n", (with_option ? "canonical" : "default"));
-		while (files->paths[i])
-		{
-			printf("> file-%li: %s\n", i, files->paths[i]);
-			i++;
-		}
+		final_return = files_dump(files, use_canonical_style);
+		free(files->paths);
+		free(files);
 	}
-	free(files);
-	return (0);
+	return (final_return);
 }
