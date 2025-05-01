@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stdin_dump.c                                       :+:      :+:    :+:   */
+/*   handle_stdin.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:50:26 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/30 20:36:17 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/04/30 23:06:36 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,12 @@ unsigned int	stdin_dump(bool use_canonical_style)
 	bytes_read = read(STDIN, temp_buffer, sizeof(temp_buffer) - 1);
 	while (bytes_read > 0)
 	{
-		print_offset(offset);
-		ft_putstr_fd("\n", 1);
-		offset += 16;
+		if (bytes_read == 16)
+		{
+			print_offset(offset);
+			ft_putstr_fd("\n", 1);
+			offset += 16;
+		}
 		bytes_read = read(STDIN, temp_buffer, sizeof(temp_buffer));
 	}
 	if (bytes_read == -1)
