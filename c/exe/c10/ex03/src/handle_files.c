@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   files_dump.c                                       :+:      :+:    :+:   */
+/*   handle_files.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 15:04:36 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/28 17:06:29 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/02 00:47:46 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_hexdump.h"
 
-unsigned int	files_dump(t_files *files, bool use_canonical_style)
+unsigned int	handle_files(t_files *files, bool use_canonical_style)
 {
 	int		fd;
 	size_t	i;
