@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:50:26 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/30 23:06:36 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/01 20:40:48 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	print_offset(size_t nbr)
 	return ;
 }
 
-unsigned int	stdin_dump(bool use_canonical_style)
+unsigned int	handle_stdin(bool use_canonical_style)
 {
 	size_t	offset;
 	ssize_t	bytes_read;
