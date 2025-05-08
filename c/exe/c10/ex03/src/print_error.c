@@ -6,13 +6,13 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 15:43:27 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/04/28 16:22:23 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/03 10:27:23 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_hexdump.h"
 
-unsigned int	print_error(int fd, char *filepath, int error)
+bool	print_error(int fd, char *filepath, int error)
 {
 	ft_putstr_fd("hexdump: ", 2);
 	if (filepath)
