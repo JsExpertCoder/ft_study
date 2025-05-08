@@ -6,20 +6,20 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 15:04:36 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/02 00:47:46 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/03 10:33:40 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_hexdump.h"
 
-unsigned int	handle_files(t_files *files, bool use_canonical_style)
+bool	handle_files(t_buffer *buffer, t_files *files, bool canonical)
 {
 	int		fd;
 	size_t	i;
 	size_t	final_return;
 
 	final_return = 0;
-	if (use_canonical_style)
+	if (canonical)
 	{
 	}
 	i = 0;
@@ -31,6 +31,9 @@ unsigned int	handle_files(t_files *files, bool use_canonical_style)
 		else
 		{
 			printf("> file-%li: %s\n", i, files->paths[i]);
+			printf("> buffer.offset: %li\n", buffer->offset);
+			printf("> buffer.bytes_rd: %li\n", buffer->bytes_rd);
+			printf("> buffer.total_bytes_rd: %li\n", buffer->total_bytes_rd);
 			close(fd);
 		}
 		i++;
