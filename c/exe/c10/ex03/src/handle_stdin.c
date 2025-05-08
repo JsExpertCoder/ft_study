@@ -6,59 +6,37 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:50:26 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/01 20:40:48 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/03 14:12:33 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_hexdump.h"
 
-static void	print_offset(size_t nbr)
+bool	handle_stdin(t_buffer *buffer, bool canonical)
 {
-	size_t	i;
-	char	result[8];
-	char	*hexadecimals;
-
-	i = 0;
-	hexadecimals = "0123456789abcdef";
-	while (i < sizeof(result))
-	{
-		result[i] = '0';
-		i++;
-	}
-	while (nbr > 0 && i > 0)
-	{
-		result[i - 1] = hexadecimals[nbr % 16];
-		i--;
-		nbr /= 16;
-	}
-	ft_putstr_fd(result, 1);
-	ft_putstr_fd(" ", 1);
-	return ;
-}
-
-unsigned int	handle_stdin(bool use_canonical_style)
-{
-	size_t	offset;
+	size_t	bytes_left;
 	ssize_t	bytes_read;
-	char	temp_buffer[16];
+	char	*free_space;
+	size_t	final_return;
 
-	offset = 0;
-	(void)use_canonical_style;
-	bytes_read = read(STDIN, temp_buffer, sizeof(temp_buffer) - 1);
+	bytes_left = 16 - buffer->bytes_rd;
+	free_space = buffer->current + buffer->bytes_rd;
+	bytes_read = read(STDIN, free_space, bytes_left);
 	while (bytes_read > 0)
 	{
-		if (bytes_read == 16)
+		buffer->bytes_rd += bytes_read;
+		buffer->total_bytes_rd += bytes_read;
+		if (buffer->bytes_rd == 16)
 		{
-			print_offset(offset);
-			ft_putstr_fd("\n", 1);
-			offset += 16;
+			final_return = ft_hexdump(buffer, canonical);
+			buffer->bytes_rd = 0;
+			buffer->offset += 16;
 		}
-		bytes_read = read(STDIN, temp_buffer, sizeof(temp_buffer));
+		bytes_left = 16 - buffer->bytes_rd;
+		free_space = buffer->current + buffer->bytes_rd;
+		bytes_read = read(STDIN, free_space, bytes_left);
 	}
 	if (bytes_read == -1)
-	{
-		print_error(0, NULL, errno);
-		return (1);
-	}
-	return (0);
+		final_return = print_error(0, NULL, errno);
+	return (final_return);
 }
