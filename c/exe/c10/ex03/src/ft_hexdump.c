@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:04:16 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/09 08:03:15 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:59:03 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	print_two_hexa_columns(t_buffer *buffer)
 	size_t	i;
 
 	i = 0;
-	while (i < 16)
+	while (i < BUFFER_SIZE)
 	{
-		if (i == 8)
+		if (i == BUFFER_SIZE / 2)
 			write(1, " ", 1);
 		if (buffer->current[i])
 			print_hexa(2, buffer->current[i]);
@@ -55,7 +55,7 @@ void	reset_current(char *current)
 	size_t	i;
 
 	i = 0;
-	while (i < 16)
+	while (i < BUFFER_SIZE)
 	{
 		current[i] = 0;
 		i++;
@@ -71,17 +71,18 @@ bool	ft_hexdump(t_buffer *buffer, bool canonical_style)
 			write(1, "*\n", 2);
 			buffer->flag = false;
 		}
-		return (0);
 	}
 	else
+	{
 		buffer->flag = true;
-	print_hexa(8, buffer->offset);
-	write(1, "  ", 2);
-	print_two_hexa_columns(buffer);
-	if (canonical_style)
-		print_chars(buffer);
-	write(1, "\n", 1);
-	ft_strcpy(buffer->previous, buffer->current);
+		print_hexa(8, buffer->offset);
+		write(1, "  ", 2);
+		print_two_hexa_columns(buffer);
+		if (canonical_style)
+			print_chars(buffer);
+		write(1, "\n", 1);
+		ft_strcpy(buffer->previous, buffer->current);
+	}
 	reset_current(buffer->current);
 	return (0);
 }
