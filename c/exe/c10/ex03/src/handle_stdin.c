@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:50:26 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/08 22:48:33 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:58:06 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ bool	handle_stdin(t_buffer *buffer, bool canonical)
 	char	*free_space;
 	size_t	final_return;
 
-	bytes_left = 16 - buffer->bytes_rd;
+	bytes_left = BUFFER_SIZE - buffer->bytes_rd;
 	free_space = buffer->current + buffer->bytes_rd;
 	bytes_read = read(STDIN, free_space, bytes_left);
 	while (bytes_read > 0)
 	{
 		buffer->bytes_rd += bytes_read;
 		buffer->total_bytes_rd += bytes_read;
-		if (buffer->bytes_rd == 16)
+		if (buffer->bytes_rd == BUFFER_SIZE)
 		{
 			final_return = ft_hexdump(buffer, canonical);
 			buffer->bytes_rd = 0;
-			buffer->offset += 16;
+			buffer->offset += BUFFER_SIZE;
 		}
-		bytes_left = 16 - buffer->bytes_rd;
+		bytes_left = BUFFER_SIZE - buffer->bytes_rd;
 		free_space = buffer->current + buffer->bytes_rd;
 		bytes_read = read(STDIN, free_space, bytes_left);
 	}
