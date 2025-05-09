@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 18:37:15 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/09 15:48:34 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:24:02 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,13 @@ static bool	check_option_existence(char **tokens)
 void	init_buffer(t_buffer *buffer)
 {
 	size_t		i;
-	size_t		size;
 
 	buffer->offset = 0;
 	buffer->bytes_rd = 0;
 	buffer->flag = false;
 	buffer->total_bytes_rd = 0;
 	i = 0;
-	size = 16;
-	while (i++ <= size)
+	while (i++ <= BUFFER_SIZE)
 	{
 		buffer->current[i - 1] = 0;
 		buffer->previous[i - 1] = 0;
@@ -49,15 +47,13 @@ void	init_buffer(t_buffer *buffer)
 
 t_buffer	*alloc_buffer(void)
 {
-	size_t		size;
 	t_buffer	*buffer;
 
 	buffer = malloc(sizeof(t_buffer));
 	if (!buffer)
 		return (NULL);
-	size = 16;
-	buffer->current = malloc(size + 1);
-	buffer->previous = malloc(size + 1);
+	buffer->current = malloc(BUFFER_SIZE + 1);
+	buffer->previous = malloc(BUFFER_SIZE + 1);
 	if (!buffer->current || !buffer->previous)
 	{
 		free(buffer);
