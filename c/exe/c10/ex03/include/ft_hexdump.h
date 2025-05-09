@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 18:59:26 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/08 22:51:51 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/09 16:57:47 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <unistd.h> // read(), close(), write(), size_t, ssize_t
 
 # define STDIN 0
+# define BUFFER_SIZE 16
 
 typedef struct s_files
 {
