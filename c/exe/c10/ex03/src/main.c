@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 18:37:15 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/08 22:47:57 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/09 15:48:34 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,26 @@ static bool	check_option_existence(char **tokens)
 	return (false);
 }
 
-t_buffer	*init_buffer(void)
+void	init_buffer(t_buffer *buffer)
 {
 	size_t		i;
+	size_t		size;
+
+	buffer->offset = 0;
+	buffer->bytes_rd = 0;
+	buffer->flag = false;
+	buffer->total_bytes_rd = 0;
+	i = 0;
+	size = 16;
+	while (i++ <= size)
+	{
+		buffer->current[i - 1] = 0;
+		buffer->previous[i - 1] = 0;
+	}
+}
+
+t_buffer	*alloc_buffer(void)
+{
 	size_t		size;
 	t_buffer	*buffer;
 
@@ -46,40 +63,33 @@ t_buffer	*init_buffer(void)
 		free(buffer);
 		return (NULL);
 	}
-	buffer->offset = 0;
-	buffer->bytes_rd = 0;
-	buffer->total_bytes_rd = 0;
-	i = 0;
-	while (i++ <= size)
-	{
-		buffer->current[i - 1] = 0;
-		buffer->previous[i - 1] = 0;
-	}
+	init_buffer(buffer);
 	return (buffer);
 }
 
 void	final_print(t_buffer *buffer, bool canonical_style)
 {
-	if (buffer->bytes_rd > 0)
-	{
+	if (buffer->bytes_rd)
 		ft_hexdump(buffer, canonical_style);
+	if (buffer->total_bytes_rd)
+	{
 		print_hexa(8, buffer->total_bytes_rd);
 		write(1, "\n", 1);
 	}
 	return ;
 }
 
-int	main(int argc, char **argv)
+int	main(int _, char **argv)
 {
 	t_files		*files;
 	t_buffer	*buffer;
 	size_t		final_return;
 	bool		use_canonical_style;
 
-	buffer = init_buffer();
+	(void)_;
+	buffer = alloc_buffer();
 	if (buffer == NULL)
 		return (1);
-	(void)argc;
 	final_return = 0;
 	files = file_collector(++argv);
 	use_canonical_style = check_option_existence(argv);
