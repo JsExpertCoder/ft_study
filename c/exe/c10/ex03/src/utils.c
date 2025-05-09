@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 12:23:00 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/08 22:48:40 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:00:06 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ bool	print_hexa(size_t len, size_t nbr)
 	i = 0;
 	while (nbr > 0 && i < len)
 	{
-		result[len - 1 - i] = hexadecimals[nbr % 16];
+		result[len - 1 - i] = hexadecimals[nbr % BUFFER_SIZE];
 		i++;
-		nbr /= 16;
+		nbr /= BUFFER_SIZE;
 	}
 	ft_putstr_fd(result, 1);
 	free(result);
