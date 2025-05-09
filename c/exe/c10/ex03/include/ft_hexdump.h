@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 18:59:26 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/09 16:57:47 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:36:47 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ bool	print_hexa(size_t len, size_t nbr);
 char	*ft_strcpy(char *dst, const char *src);
 int		ft_strcmp(const char *s1, const char *s2);
 bool	print_error(int fd, char *filepath, int error);
-bool	handle_stdin(t_buffer *buffer, bool canonical_style);
 bool	ft_hexdump(t_buffer *buffer, bool canonical_style);
+bool	handle_stdin(t_buffer *buffer, bool canonical_style);
 bool	handle_files(t_buffer *buffer, t_files *files, bool canonical_style);
 #endif
