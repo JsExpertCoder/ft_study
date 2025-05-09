@@ -6,13 +6,13 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 15:04:36 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/09 17:14:17 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/09 17:28:26 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_hexdump.h"
 
-ssize_t	read_into_buffer(int fd, t_buffer *buffer)
+static ssize_t	read_into_buffer(int fd, t_buffer *buffer)
 {
 	ssize_t	bytes_read;
 	size_t	bytes_left;
