@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 18:59:26 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/08 22:48:53 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/08 22:51:51 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_buffer
 	size_t	bytes_rd;
 	size_t	offset;
 	size_t	total_bytes_rd;
+	bool	flag;
 }	t_buffer;
 
 size_t	ft_strlen(const char *s);
