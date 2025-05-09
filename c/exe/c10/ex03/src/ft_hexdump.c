@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 10:04:16 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/08 22:48:21 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/09 08:03:15 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,17 @@ void	reset_current(char *current)
 
 bool	ft_hexdump(t_buffer *buffer, bool canonical_style)
 {
+	if (ft_strcmp(buffer->current, buffer->previous) == 0)
+	{
+		if (buffer->flag)
+		{
+			write(1, "*\n", 2);
+			buffer->flag = false;
+		}
+		return (0);
+	}
+	else
+		buffer->flag = true;
 	print_hexa(8, buffer->offset);
 	write(1, "  ", 2);
 	print_two_hexa_columns(buffer);
