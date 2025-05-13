@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 19:55:41 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/13 20:43:40 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/13 20:54:23 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_any(char **tab, int(*f)(char*))
 
 // int	has_space(char *s)
 // {
-// 	while (*s != '\0')
+// 	while (*s)
 // 	{
 // 		if (*s == 32)
 // 			return (1);
