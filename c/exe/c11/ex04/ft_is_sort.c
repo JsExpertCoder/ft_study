@@ -6,11 +6,11 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 13:15:35 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/14 13:46:45 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/14 13:47:25 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+// #include <stdio.h>
 
 int	ft_is_sort(int *tab, int length, int(*f)(int, int))
 {
@@ -36,32 +36,32 @@ int	ft_is_sort(int *tab, int length, int(*f)(int, int))
 	return (1);
 }
 
-int	get_order_direction(int n1, int n2)
-{
-	if (n1 < n2)
-		return (-1);
-	else if (n1 > n2)
-		return (1);
-	return (0);
-}
+// int	get_order_direction(int n1, int n2)
+// {
+// 	if (n1 < n2)
+// 		return (-1);
+// 	else if (n1 > n2)
+// 		return (1);
+// 	return (0);
+// }
 
-int	main(void)
-{
-	size_t	i;
-	size_t	len;
-	int		array[] = {12, 1, 0};
+// int	main(void)
+// {
+// 	size_t	i;
+// 	size_t	len;
+// 	int		array[] = {12, 1, 0};
 
-	i = 0;
-	len = sizeof(array) / sizeof(array[0]);
-	printf("> array (%li): ", len);
-	while (i < len)
-	{
-		printf("%i, ", array[i]);
-		i++;
-	}
-	if (ft_is_sort(array, len, &get_order_direction))
-		printf("\nthe array is sorted :)\n");
-	else
-		printf("\nthe array is'n sorted :(\n");
-	return (0);
-}
+// 	i = 0;
+// 	len = sizeof(array) / sizeof(array[0]);
+// 	printf("> array (%li): ", len);
+// 	while (i < len)
+// 	{
+// 		printf("%i, ", array[i]);
+// 		i++;
+// 	}
+// 	if (ft_is_sort(array, len, &get_order_direction))
+// 		printf("\nthe array is sorted :)\n");
+// 	else
+// 		printf("\nthe array is'n sorted :(\n");
+// 	return (0);
+// }
