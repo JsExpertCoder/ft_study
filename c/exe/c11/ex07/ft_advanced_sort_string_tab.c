@@ -6,7 +6,7 @@
 /*   By: fnicolau <marvin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 15:50:26 by fnicolau          #+#    #+#             */
-/*   Updated: 2025/05/19 16:32:54 by fnicolau         ###   ########.fr       */
+/*   Updated: 2025/05/19 17:17:48 by fnicolau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ size_t	get_tab_len(char **tab)
 
 void	ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *))
 {
-	size_t	i;
-	size_t	j;
-	size_t	len;
+	int		i;
+	int		j;
+	int		len;
 	char	*tmp;
 
 	i = 0;
@@ -61,7 +61,7 @@ void	ft_advanced_sort_string_tab(char **tab, int(*cmp)(char *, char *))
 int	main(void)
 {
 	size_t	i;
-	char	*tab[] = {"apple", "apPlE", "banana", "ABC", "42", "Orange", NULL};
+	char	*tab[] = {"apple", "apPlE", "", "010", "1", "banana", "ABC", "42", "Orange", "007", NULL};
 
 	printf("> before sorting:\n");
 	i = 0;
